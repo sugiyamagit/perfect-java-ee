@@ -1,7 +1,7 @@
 /**
  *
  */
-package org.jboss.as.quickstarts.kitchensink.common;
+package org.jboss.as.quickstarts.kitchensink.annotation;
 
 /**
  * @author sinokuma

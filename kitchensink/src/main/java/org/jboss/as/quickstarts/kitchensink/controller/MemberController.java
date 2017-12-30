@@ -50,6 +50,7 @@ public class MemberController {
 
     @PostConstruct
     public void initNewMember() {
+        // 検査例外のスロー不可(@PreDestroyも同様)
         newMember = new Member();
     }
 

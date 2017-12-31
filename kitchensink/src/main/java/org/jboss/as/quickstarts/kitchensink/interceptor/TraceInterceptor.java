@@ -4,6 +4,7 @@
 package org.jboss.as.quickstarts.kitchensink.interceptor;
 
 import javax.annotation.Priority;
+import javax.interceptor.AroundConstruct;
 import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
@@ -40,5 +41,14 @@ public class TraceInterceptor {
         } finally {
             LOGGER.trace("End " + className + "." + methodName + " method");
         }
+    }
+
+    @AroundConstruct
+    public Object logConstructor(InvocationContext ic) throws Exception {
+        String constructorName = ic.getConstructor().getName();
+        LOGGER.trace("Start " + constructorName);
+        Object result = ic.proceed();
+        LOGGER.trace("End " + constructorName);
+        return result;
     }
 }

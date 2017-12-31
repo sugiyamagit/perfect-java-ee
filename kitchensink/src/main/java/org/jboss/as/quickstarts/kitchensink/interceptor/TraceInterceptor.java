@@ -4,6 +4,7 @@
 package org.jboss.as.quickstarts.kitchensink.interceptor;
 
 import javax.annotation.Priority;
+import javax.interceptor.AroundInvoke;
 import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
@@ -23,6 +24,7 @@ public class TraceInterceptor {
 
     private static final Logger LOGGER = Logger.getLogger(TraceInterceptor.class);
 
+    @AroundInvoke
     public Object log(InvocationContext ic) throws Exception {
         String methodName = ic.getMethod().getName();
         String className = ic.getTarget().getClass().getSimpleName();

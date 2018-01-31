@@ -51,4 +51,9 @@ public class JaxRsSampleDto {
         this.name = name;
     }
 
+    @Override
+    public String toString() {
+        return "JaxRsSampleDto [title=" + title + ", name=" + name + "]";
+    }
+
 }
